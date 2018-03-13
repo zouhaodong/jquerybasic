@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div>元素一</div>
+    <div>元素二</div>
+    <div>元素三</div>
+    <script>
+        var $div = $('div');        //jQuery对象
+        var div = $div[1];          //转化成DOM对象
+        div.style.color = 'red';    //操作dom对象的属性
+
+        //相比较jQuery转化成DOM，开发中更多的情况是把一个dom对象加工成jQuery对象。
+        // $(参数)是一个多功能的方法，通过传递不同的参数而产生不同的作用。
+        //如果传递给$(DOM)函数的参数是一个DOM对象，
+        // jQuery方法会把这个DOM对象给包装成一个新的jQuery对象
+        var divs = document.getElementsByTagName('div'); //dom对象
+        var $divs = $(divs); //jQuery对象
+        var $first = $divs.first(); //找到第一个div元素
+        $first.css('color', 'green'); //给第一个元素设置颜色
+    </script>
+</body>
+</html>

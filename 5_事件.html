@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:50px;
+            width: 80px;
+            background: #888888;
+            margin: 2px;
+        }
+        div:hover{
+            cursor:pointer;
+        }
+        .over{
+            height:100px;
+            width: 100px;
+            color:lightgray;
+            padding:20px;
+        }
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="d1">click</div>
+    <div id="d2">dbclick</div>
+    <div id="d3">mouseenter</div>
+    <div id="d4">hover</div>
+    <div id="d5" class="over">
+        <h4 style="background-color:white;">被触发的 Mouseover 事件：
+            <span></span>
+        </h4>
+    </div>
+    <div id="d6" class="over">
+        <h4 style="background-color:white;">被触发的 Mouseenter 事件：
+            <span></span>
+        </h4>
+    </div>
+    <div id="d7"></div>
+    <div id="d8"></div>
+    <p>不论鼠标指针穿过被选元素或其子元素，都会触发 mouseover 事件。</p>
+    <p>只有在鼠标指针穿过被选元素时，才会触发 mouseenter 事件。</p>
+    <p>mouseout与mouseleave的区别跟上面两个类似</p>
+
+    <script>
+        //cnpm install -g jquery@2.1.4
+        $('#d1').click(function () {
+            $(this).css('background','red');
+        });
+
+        $('#d2').dblclick(function () {
+            $(this).css('background','red');
+        });
+
+        //当鼠标指针穿过元素时，会发生 mouseenter 事件
+        $('#d3').mouseenter(function () {
+            $(this).css('color','yellow').html('mouseenter');
+        });
+        //当鼠标指针离开元素时，会发生 mouseleave 事件。
+        $('#d3').mouseleave(function () {
+            $(this).html('mouseleave');
+        });
+
+        //hover()方法用于模拟光标悬停事件。
+        //当鼠标移动到元素上时，会触发指定的第一个函数(mouseenter);
+        // 当鼠标移出这个元素时，会触发指定的第二个函数(mouseleave)。
+        $('#d4').hover(
+            function(){
+                alert('你hover了_(:з」∠)_');
+            },
+            function () {
+                alert('你离开了_(:з」∠)_');
+            }
+        );
+
+        //mouseover与mouseenter的区别
+        var x=0,y=0;
+        $('#d5').mouseover(function () {
+            $('#d5 span').text(x+=1);
+        });
+        $('#d6').mouseenter(function () {
+            $('#d6 span').text(y+=1);
+        });
+
+        //当鼠标指针在指定的元素中移动时，就会发生 mousemove 事件。
+        //mousemove事件处理函数会被传递一个变量——事件对象，其.clientX 和 .clientY 属性代表鼠标的坐标
+        $(document).mousemove(function (e) {
+            $('#d7').text(e.pageX+","+e.pageY);
+        });
+
+        //当调整浏览器窗口的大小时，发生 resize 事件。
+        var z=0;
+        $(window).resize(function () {
+            $("#d8").text(z+=1);
+        });
+    </script>
+</body>
+</html>

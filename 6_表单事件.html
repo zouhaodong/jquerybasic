@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+输入你的名字: <input type="text">
+<br><br>
+<button id="btn1">触发 focus 事件</button>
+<button id="btn2">触发 blur 事件</button>
+
+<form action="">
+    First name:
+    <input type="text" name="FirstName" value="Mickey"><br>
+    Last name:
+    <input type="text" name="LastName" value="Mouse"><br>
+    <input type="submit" value="提交">
+</form>
+
+<input type="text" id="i2" placeholder="请输入文字">
+<script>
+    $("#btn1").click(function(){
+        $("input").focus().val($("#btn1").text());
+    });
+    $("#btn2").click(function(){
+        $("input").blur().val($("#btn2").text());
+    });
+
+    //当提交表单时，显示警告框：该事件只适用于 <form> 元素。
+    $("form").submit(function(e){
+        e.preventDefault();
+        alert('submit');
+    });
+
+    //当元素的值改变时发生 change 事件（仅适用于表单字段）。
+    //当用于 select 元素时，change 事件会在选择某个选项时发生。
+    //当用于 text field 或 text area 时，change 事件会在元素失去焦点时发生。
+    $("#i2").change(function () {
+        alert('文本已被修改。')
+    });
+
+</script>
+</body>
+</html>

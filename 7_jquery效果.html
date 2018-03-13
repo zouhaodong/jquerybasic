@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+<p id="p1">如果你点击“隐藏” 按钮，我将会消失。</p>
+<button id="hide">隐藏</button>
+<button id="show">显示</button>
+<button id="toggle">切换</button>
+<br>
+<button id="fade">淡入淡出</button>
+<div id="div1" style="width:80px;height:80px;display:none;background-color:red;">div1</div><br>
+<div id="div2" style="width:80px;height:80px;background-color:green;">div2</div><br>
+<div id="div3" style="width:80px;height:80px;display:none;background-color:blue;">div3</div>
+
+<script>
+    //show() 、 hide() and toggle()  显示和隐藏
+    $("#hide").click(function(){
+        $("#p1").hide("fast");
+    });
+    $("#show").click(function(){
+        $("#p1").show("slow",function () {
+            $(this).text("哈哈，我又出来了！")
+        });
+    });
+    $('#toggle').click(function () {
+        $("#p1").toggle(600);
+    });
+
+    $('#fade').click(function () {
+        $('#div1').fadeIn('fast');
+        $('#div2').fadeOut('slow');
+        $('#div3').fadeToggle(1000);
+    });
+</script>
+</body>
+</html>

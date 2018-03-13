@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <p id="imooc1"></p>
+    <p id="imooc2"></p>
+    <script>
+        //jQuery对象与DOM对象是不一样的
+        //jQuery对象用jQuery方法，DOM对象用DOM方法
+        //通过jQuery方法包装后的对象，是一个类数组对象。
+        window.onload = function () {
+            var p = document.getElementById('imooc1');
+            p.innerHTML = '123';//原生DOM方法
+            p.style.color = 'red';
+
+            var $p = $('#imooc2');
+            $p.html('234');//jQuery方法
+        }
+    </script>
+</body>
+</html>

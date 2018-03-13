@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 90px;
+            float: left;
+            padding: 5px;
+            margin: 5px;
+            background-color: #EEEEEE;
+        }
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div class="div2"></div>
+    <p id="test2">点击测试：通过jQuery处理</p>
+    <script>
+        //id选择器
+        $('#div1').html('this is div1!');
+
+        //class选择器
+        $('.div2').html('this is div2');
+
+        //元素选择器
+        //  $( "element" )
+
+        //全选择器
+        //  $( "*" )
+
+        //子选择器（直接子元素）
+        //$('parent>child')
+
+        //后代选择器
+        //$('parent child')
+
+        //兄弟选择器(后面紧邻的兄弟)
+        //$('prev+next')
+
+        //一般兄弟选择器(后面所有的兄弟)
+        //$('prev~siblings')
+
+        //this
+        $('#test2').click(function () {
+            $(this).css('color','blue');
+        });
+    </script>
+</body>
+</html>
