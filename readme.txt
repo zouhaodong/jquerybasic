@@ -1,0 +1,1 @@
+git@github.com:zouhaodong/jquerybasic.git
